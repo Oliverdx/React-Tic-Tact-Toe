@@ -25,6 +25,10 @@ class Board extends React.Component {
             });
     }
 
+    restartGame() {
+        return this.setState({ squares: Array(9).fill(null) });
+    }
+
     renderSquare(i) {
         return (
             <Square
@@ -46,7 +50,6 @@ class Board extends React.Component {
 
         return (
             <div>
-                <div className="status">{status}</div>
                 <div className="board-row">
                     {this.renderSquare(0)}
                     {this.renderSquare(1)}
@@ -62,6 +65,8 @@ class Board extends React.Component {
                     {this.renderSquare(7)}
                     {this.renderSquare(8)}
                 </div>
+                <div className="status">{status}</div>
+                <button className="restartGame" onClick={() => this.restartGame()}>Restart</button>
             </div>
         );
     }
